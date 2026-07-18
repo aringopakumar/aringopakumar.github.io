@@ -1,5 +1,12 @@
 # Dependencies
 node_modules/
+package-lock.json
+
+# Jekyll (unused - this is a static site)
+_site/
+.jekyll-cache/
+.ruby-version
+Gemfile.lock
 
 # macOS
 .DS_Store
