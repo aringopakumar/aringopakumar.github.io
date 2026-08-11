@@ -25,6 +25,7 @@
 }
 
 html {
+    font-size: 18px;
     scroll-behavior: smooth;
 }
 
@@ -61,7 +62,7 @@ body {
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1.2;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.1rem;
     color: var(--ink);
 }
 
@@ -69,13 +70,6 @@ body {
     .page-name {
         font-size: 2.6rem;
     }
-}
-
-.tagline {
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--ink-muted);
-    margin-bottom: 1.4rem;
 }
 
 .contact-row {
@@ -88,6 +82,7 @@ body {
 .contact-row a {
     color: var(--ink-muted);
     text-decoration: none;
+    padding-bottom: 3px;
     border-bottom: 1px solid transparent;
 }
 
@@ -103,79 +98,89 @@ body {
     color: var(--ink-faint);
 }
 
-/* ---------- Section blocks ---------- */
+/* ---------- Bio ---------- */
 
-.block {
-    margin-bottom: 3.75rem;
+.bio {
+    margin-bottom: 1.5rem;
 }
 
-.label {
+.bio p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+    text-align: justify;
+}
+
+.bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Publications ---------- */
+
+.section-label {
     font-variant: small-caps;
     letter-spacing: 0.08em;
     font-weight: 600;
     font-size: 1rem;
     color: var(--ink-faint);
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
-/* ---------- Entries ---------- */
-
-.entry {
-    margin-bottom: 2.1rem;
+.publications {
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
 }
 
-.entry:last-child {
+.pub-entry {
+    margin-bottom: 1.6rem;
+}
+
+.pub-entry:last-child {
     margin-bottom: 0;
 }
 
-.entry-top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.3rem 1rem;
-    margin-bottom: 0.45rem;
-}
-
-.entry-title {
-    font-size: 1.05rem;
+.pub-title {
+    font-size: 1rem;
     font-weight: 700;
+    line-height: 1.5;
     color: var(--ink);
+    margin-bottom: 0.25rem;
 }
 
-.entry-meta {
+.pub-authors {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.2rem;
+}
+
+.pub-meta {
     font-size: 0.85rem;
     font-style: italic;
     color: var(--ink-faint);
-    white-space: nowrap;
 }
 
-.entry-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--ink-muted);
+.pub-locked {
+    opacity: 0.5;
 }
 
-@media (min-width: 860px) {
-    .entry-desc {
-        white-space: nowrap;
-    }
+.pub-locked .pub-title {
+    font-weight: 600;
 }
+
 
 /* ---------- Links (shared) ---------- */
 
 .prose-link {
     color: var(--accent);
     text-decoration: none;
+    padding-bottom: 2px;
     border-bottom: 1px solid transparent;
 }
 
 .prose-link:hover {
     border-bottom-color: var(--accent);
-}
-
-.entry-title .prose-link {
-    font-weight: 700;
 }
 
 /* ---------- Footer ---------- */
@@ -218,15 +223,6 @@ body {
 .theme-toggle i {
     font-size: 0.9rem;
     color: var(--ink-muted);
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 480px) {
-    .entry-top {
-        flex-direction: column;
-        gap: 0.15rem;
-    }
 }
 
 /* ---------- Print ---------- */
