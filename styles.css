@@ -40,12 +40,12 @@ body {
     max-width: 48rem;
     margin: 0 auto;
     width: 100%;
-    padding: 3rem 2rem 4rem;
+    padding: 3rem 2rem 2rem;
 }
 
 @media (min-width: 768px) {
     .page {
-        padding: 4.5rem 2rem 5rem;
+        padding: 4.5rem 2rem 2.5rem;
     }
 }
 
@@ -75,6 +75,7 @@ body {
 .contact-row {
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
     font-size: 0.95rem;
     color: var(--ink-faint);
 }
@@ -91,7 +92,7 @@ body {
     border-bottom-color: var(--accent);
 }
 
-.contact-row a:not(:last-child)::after {
+.contact-row span:not(:last-child)::after {
     content: "\00B7";
     display: inline-block;
     margin: 0 0.55em;
@@ -128,7 +129,6 @@ body {
 }
 
 .publications {
-    margin-bottom: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--rule);
 }
@@ -186,7 +186,7 @@ body {
 /* ---------- Footer ---------- */
 
 .page-footer {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
     font-size: 0.82rem;
