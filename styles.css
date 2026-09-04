@@ -52,7 +52,7 @@ body {
 /* ---------- Top: name, tagline, contact ---------- */
 
 .page-top {
-    margin-bottom: 1.75rem;
+    margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--rule);
 }
@@ -102,7 +102,7 @@ body {
 /* ---------- Bio ---------- */
 
 .bio {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .bio p {
@@ -134,7 +134,7 @@ body {
 }
 
 .pub-entry {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.85rem;
 }
 
 .pub-entry:last-child {
@@ -144,15 +144,18 @@ body {
 .pub-title {
     font-size: 1rem;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.38;
     color: var(--ink);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
+    text-wrap: pretty;
 }
 
 .pub-authors {
     font-size: 0.92rem;
+    line-height: 1.5;
     color: var(--ink-muted);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
+    text-wrap: pretty;
 }
 
 .pub-meta {
@@ -186,8 +189,8 @@ body {
 /* ---------- Footer ---------- */
 
 .page-footer {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--rule);
     font-size: 0.82rem;
     color: var(--ink-faint);
