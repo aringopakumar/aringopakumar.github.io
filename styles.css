@@ -16,26 +16,18 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; 
 a:hover { text-decoration-color: var(--ink); }
 a:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
 
-.wrap { max-width: 43rem; margin: 0 auto; padding: 3rem 1.25rem 3rem; }
+.wrap { max-width: 43rem; margin: 0 auto; padding: 5rem 1.25rem 3rem; }
 
 /* ---- masthead: name + contact beside a compact animated figure ---- */
 .masthead {
-  display: grid; grid-template-columns: minmax(0, 1fr) 20rem; column-gap: 1.5rem; align-items: start;
   padding-bottom: 1.5rem; margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--rule);
 }
-/* two lines of the name = the figure's height (2 x font-size x line-height) */
-h1 { font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', serif; font-size: 2.4rem; font-weight: 500; letter-spacing: -.005em; line-height: 1.15; }
-.contact { grid-column: 1 / -1; margin-top: 1.25rem; line-height: 1.5; }
-.contact { font-size: .9rem; white-space: nowrap; }
-.contact a { display: inline-block; padding: .15em .2em; margin: 0 -.2em; }
-.contact span { margin: 0 .4em; color: var(--faint); }
+h1 { font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', serif; font-size: 2rem; font-weight: 500; letter-spacing: -.01em; line-height: 1.2; margin-bottom: .55rem; }
+.contact { font-size: 1em; line-height: 1.6; }
 
-.hero { --bleed: 3.5rem; position: relative; height: 5.52rem; overflow: visible; }
-.hero .stage { position: absolute; inset: calc(-1 * var(--bleed)); pointer-events: none; }
-.hero canvas, .hero .fallback { display: block; width: 100%; height: 100%; }
-.hero canvas[hidden] { display: none; }
-.hero .fallback { position: absolute; inset: 0; }
+.contact span { margin: 0 .55em; color: var(--faint); }
+
 
 /* ---- content ---- */
 .bio p {
@@ -58,11 +50,9 @@ footer { max-width: 43rem; margin: 0 auto; padding: 0 1.25rem 3rem; font-size: .
 
 @media (max-width: 640px) {
   body { font-size: 15px; }
-  .wrap { padding-top: 2.25rem; }
-  .masthead { grid-template-columns: 1fr; row-gap: 1.25rem; }
-  .hero { order: -1; height: 6.5rem; --bleed: 2.5rem; }
-  .contact { grid-column: auto; margin-top: 0; white-space: normal; }
-  h1 { font-size: 2rem; }
+  .wrap { padding-top: 3.25rem; }
+  .contact { white-space: normal; }
+  h1 { font-size: 1.75rem; }
   .pubs li { grid-template-columns: 3.2rem 1fr; gap: 0 .75rem; }
   /* narrow measure: hyphenate so justified lines don't gap */
   .bio p { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 8 4 4; }
@@ -71,4 +61,4 @@ footer { max-width: 43rem; margin: 0 auto; padding: 0 1.25rem 3rem; font-size: .
    with this wording and column width the last line lands ~96% full naturally, so justifying it
    only closes the remainder instead of stretching a short line. */
 @media (min-width: 740px) { .bio p { word-spacing: 0.3ch; text-align-last: justify; } }
-@media print { .hero { display: none; } .masthead { grid-template-columns: 1fr; } a { color: #000; } }
+@media print { a { color: #000; } }
