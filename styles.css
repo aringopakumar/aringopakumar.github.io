@@ -1,250 +1,74 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Arin Gopakumar — personal site */
 
 :root {
-    --paper-bg: #f6f3ec;
-    --ink: #211f1c;
-    --ink-muted: #5c574f;
-    --ink-faint: #8a8478;
-    --rule: #d8d2c4;
-    --accent: #8a4a2a;
-    --accent-hover: #6e3a1f;
+  --bg: #ffffff; --ink: #111111; --mute: #555555; --faint: #6a6a6a; --rule: #e4e4e4;
 }
-
-[data-theme="dark"] {
-    --paper-bg: #16140f;
-    --ink: #ece5d8;
-    --ink-muted: #b3ab9a;
-    --ink-faint: #8a8272;
-    --rule: #332f26;
-    --accent: #d98a5f;
-    --accent-hover: #e6a37c;
-}
-
-html {
-    font-size: 18px;
-    scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
 body {
-    font-family: 'Old Standard TT', Georgia, 'Times New Roman', serif;
-    background-color: var(--paper-bg);
-    color: var(--ink);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--bg); color: var(--ink);
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 15.5px; line-height: 1.7;
+  overflow-x: hidden;
 }
+/* one link rule for the whole page: ink text, mid-grey hairline underline, darkens on hover */
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; text-decoration-color: var(--faint); }
+a:hover { text-decoration-color: var(--ink); }
+a:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
 
-.page {
-    max-width: 48rem;
-    margin: 0 auto;
-    width: 100%;
-    padding: 3rem 2rem 2rem;
+.wrap { max-width: 43rem; margin: 0 auto; padding: 3rem 1.25rem 3rem; }
+
+/* ---- masthead: name + contact beside a compact animated figure ---- */
+.masthead {
+  display: grid; grid-template-columns: minmax(0, 1fr) 20rem; column-gap: 1.5rem; align-items: start;
+  padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
 }
+/* two lines of the name = the figure's height (2 x font-size x line-height) */
+h1 { font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', serif; font-size: 2.4rem; font-weight: 500; letter-spacing: -.005em; line-height: 1.15; }
+.contact { grid-column: 1 / -1; margin-top: 1.25rem; line-height: 1.5; }
+.contact { font-size: .9rem; white-space: nowrap; }
+.contact a { display: inline-block; padding: .15em .2em; margin: 0 -.2em; }
+.contact span { margin: 0 .4em; color: var(--faint); }
 
-@media (min-width: 768px) {
-    .page {
-        padding: 4.5rem 2rem 2.5rem;
-    }
-}
+.hero { --bleed: 3.5rem; position: relative; height: 5.52rem; overflow: visible; }
+.hero .stage { position: absolute; inset: calc(-1 * var(--bleed)); pointer-events: none; }
+.hero canvas, .hero .fallback { display: block; width: 100%; height: 100%; }
+.hero canvas[hidden] { display: none; }
+.hero .fallback { position: absolute; inset: 0; }
 
-/* ---------- Top: name, tagline, contact ---------- */
-
-.page-top {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--rule);
-}
-
-.page-name {
-    font-size: 2.1rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    margin-bottom: 1.1rem;
-    color: var(--ink);
-}
-
-@media (min-width: 768px) {
-    .page-name {
-        font-size: 2.6rem;
-    }
-}
-
-.contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    font-size: 0.95rem;
-    color: var(--ink-faint);
-}
-
-.contact-row a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    padding-bottom: 3px;
-    border-bottom: 1px solid transparent;
-}
-
-.contact-row a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-}
-
-.contact-row span:not(:last-child)::after {
-    content: "\00B7";
-    display: inline-block;
-    margin: 0 0.55em;
-    color: var(--ink-faint);
-}
-
-/* ---------- Bio ---------- */
-
-.bio {
-    margin-bottom: 2rem;
-}
-
+/* ---- content ---- */
 .bio p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--ink);
-    margin-bottom: 1.4rem;
-    text-align: justify;
+  margin-bottom: 1.1rem;
+  line-height: 1.95;
+  text-align: justify;
+  text-wrap: pretty;
 }
+.bio p:last-child { margin-bottom: 0; }
+h2 { font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 3rem 0 .6rem; }
+.pubs { list-style: none; }
+.pubs li { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0 1rem; padding: 1.05rem 0; border-top: 1px solid var(--rule); }
+.pubs li:last-child { border-bottom: 1px solid var(--rule); }
+.pubs .yr { color: var(--faint); font-size: .9rem; padding-top: .15rem; }
+.pubs .t { display: block; font-weight: 400; line-height: 1.55; text-underline-offset: .28em; text-wrap: pretty; }
+.pubs .au { display: block; color: var(--mute); font-size: .95rem; margin-top: .3rem; }
+.pubs .ve { display: block; color: var(--faint); font-size: .9rem; margin-top: .1rem; }
+footer { max-width: 43rem; margin: 0 auto; padding: 0 1.25rem 3rem; font-size: .8rem; color: var(--faint); }
 
-.bio p:last-child {
-    margin-bottom: 0;
+
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  .wrap { padding-top: 2.25rem; }
+  .masthead { grid-template-columns: 1fr; row-gap: 1.25rem; }
+  .hero { order: -1; height: 6.5rem; --bleed: 2.5rem; }
+  .contact { grid-column: auto; margin-top: 0; white-space: normal; }
+  h1 { font-size: 2rem; }
+  .pubs li { grid-template-columns: 3.2rem 1fr; gap: 0 .75rem; }
+  /* narrow measure: hyphenate so justified lines don't gap */
+  .bio p { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 8 4 4; }
 }
-
-/* ---------- Publications ---------- */
-
-.section-label {
-    font-variant: small-caps;
-    letter-spacing: 0.08em;
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--ink-faint);
-    margin-bottom: 1.5rem;
-}
-
-.publications {
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
-}
-
-.pub-entry {
-    margin-bottom: 1.85rem;
-}
-
-.pub-entry:last-child {
-    margin-bottom: 0;
-}
-
-.pub-title {
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.38;
-    color: var(--ink);
-    margin-bottom: 0.35rem;
-    text-wrap: pretty;
-}
-
-.pub-authors {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--ink-muted);
-    margin-bottom: 0.15rem;
-    text-wrap: pretty;
-}
-
-.pub-meta {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--ink-faint);
-}
-
-.pub-locked {
-    opacity: 0.5;
-}
-
-.pub-locked .pub-title {
-    font-weight: 600;
-}
-
-
-/* ---------- Links (shared) ---------- */
-
-.prose-link {
-    color: var(--accent);
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-}
-
-.prose-link:hover {
-    border-bottom-color: var(--accent);
-}
-
-/* ---------- Footer ---------- */
-
-.page-footer {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.82rem;
-    color: var(--ink-faint);
-}
-
-/* ---------- Theme toggle ---------- */
-
-.theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: transparent;
-    border: none;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-    z-index: 10;
-}
-
-.theme-toggle:hover {
-    background: rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="dark"] .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.theme-toggle i {
-    font-size: 0.9rem;
-    color: var(--ink-muted);
-}
-
-/* ---------- Print ---------- */
-
-@media print {
-    body {
-        font-size: 11pt;
-    }
-
-    .theme-toggle {
-        display: none;
-    }
-
-    .page {
-        max-width: 100%;
-        padding: 0.4in 0.6in;
-    }
-
-    a {
-        color: #000;
-    }
-}
+/* At full column width the wrap is fixed. word-spacing sets the minimum gap (~1.3 characters);
+   with this wording and column width the last line lands ~96% full naturally, so justifying it
+   only closes the remainder instead of stretching a short line. */
+@media (min-width: 740px) { .bio p { word-spacing: 0.3ch; text-align-last: justify; } }
+@media print { .hero { display: none; } .masthead { grid-template-columns: 1fr; } a { color: #000; } }
