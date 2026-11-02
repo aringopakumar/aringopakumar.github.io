@@ -63,3 +63,36 @@ footer { max-width: 43rem; margin: 0 auto; padding: 0 1.25rem 3rem; font-size: .
    only closes the remainder instead of stretching a short line. */
 @media (min-width: 740px) { .bio p { word-spacing: 0.3ch; text-align-last: justify; } }
 @media print { a { color: #000; } }
+
+
+/* ---- publications: wider desktop layout ---- */
+@media (min-width: 900px) {
+  /* Widen publications and align its heading */
+  h2:has(+ .pubs),
+  .pubs {
+    width: min(56rem, calc(100vw - 2.5rem));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Keep authors and venue details on one line */
+  .pubs .au,
+  .pubs .ve {
+    white-space: nowrap;
+  }
+
+  /* Allow long paper titles to wrap naturally */
+  .pubs .t {
+    white-space: normal;
+  }
+}
+
+/* Preserve mobile and tablet readability */
+@media (max-width: 899px) {
+  .pubs .au,
+  .pubs .ve {
+    white-space: normal;
+  }
+}
+
