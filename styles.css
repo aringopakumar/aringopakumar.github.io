@@ -65,3 +65,17 @@ footer { max-width: 48rem; margin: 0 auto; padding: 0 1.25rem 3rem;
 /* the last line already lands ~99% full at this width, so justifying it closes the
    remainder invisibly instead of stretching a short line */
 @media (min-width: 768px) { .bio p { text-align-last: justify; } }
+
+.pubs .yr { display:none; }
+
+.pubs li { grid-template-columns: 11rem 1fr; gap:0 1.9rem; align-items:start; padding:1.35rem 0; }
+@media (max-width:640px){ .pubs li{ grid-template-columns:1fr; gap:.7rem 0; } .thumb{ max-width:16rem; } }
+
+
+/* ---- thumbnail cards ---- */
+.thumb { display:block; border:1px solid #e3e5e8; border-radius:4px; background:#fff;
+         padding:4px; overflow:hidden; text-decoration:none;
+         transition:border-color .15s ease, box-shadow .15s ease; }
+.thumb:hover { border-color:#b9bec5; box-shadow:0 1px 8px rgba(16,20,26,.06); }
+.thumb img { display:block; width:100%; height:auto; border-radius:2px; }
+.pubs li { align-items:center; }
